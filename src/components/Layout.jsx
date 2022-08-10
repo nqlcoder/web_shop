@@ -1,7 +1,29 @@
 import React from "react";
 
+import { BrowserRouter, Route } from "react-router-dom";
+import Routes from "../routes/Routes";
+
+import Header from "./Header";
+import Footer from "./Footer";
+
 const Layout = () => {
-    return <div>Layout</div>;
+    return (
+        <BrowserRouter>
+            <Route
+                render={(props) => (
+                    <div>
+                        <div className="container">
+                            <Header {...props} />
+                            <div className="main">
+                                <Routes />
+                            </div>
+                        </div>
+                        <Footer />
+                    </div>
+                )}
+            />
+        </BrowserRouter>
+    );
 };
 
 export default Layout;
